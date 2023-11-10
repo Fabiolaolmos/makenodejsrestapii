@@ -1,3 +1,6 @@
+import Joi from 'joi';
+export const passwordReg = /^[a-zA-Z0-9]{6}$/;
+
 export default {
     signUp: {
       body: Joi.object({
