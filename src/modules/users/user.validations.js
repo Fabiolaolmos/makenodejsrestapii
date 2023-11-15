@@ -1,9 +1,10 @@
-import Joi from 'joi';
+import Joi from 'joi'; // Importamos yup para la validadción
+
 export const passwordReg = /^[a-zA-Z0-9]{6}$/;
 
 export default {
     signUp: {
-      body: Joi.object({
+    body: Joi.object({
         email: Joi.string().email().required().messages({
           'any.required': 'Debe proporcionarse un email valido',
         }),

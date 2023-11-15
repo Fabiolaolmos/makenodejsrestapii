@@ -1,11 +1,9 @@
-import mongoose, {
-    Schema
-} from 'mongoose';
+import mongoose, {Schema} from 'mongoose';
 import validator from 'validator';
-import {
-    passwordReg
-} from './user.validations';
+import { passwordReg} from './user.validations';
+
 const UserSchema = new Schema({
+
     email: {
         type: String,
         unique: true,
@@ -16,24 +14,46 @@ const UserSchema = new Schema({
                 return validator.isEmail(email);
             },
             message: '{VALUE} is not a valid email!',
-        },
+        },     
     },
-    firstName: {
+
+   NumControl: {
         type: String,
-        required: [true, 'FirstName is required!'],
+        required: [true, 'campo obligatorio!'],
         trim: true,
     },
-    lastName: {
+
+    Nombre: {
         type: String,
-        required: [true, 'LastName is required!'],
+        required: [true, 'campo obligatorio!'],
         trim: true,
     },
-    userName: {
+    ApellidoPa: {
         type: String,
-        required: [true, 'UserName is required!'],
+        required: [true, 'campo obligatorio!'],
+        trim: true,
+    },
+    ApellidoMa: {
+        type: String,
+        required: [true, 'campo obligatorio!'],
         trim: true,
         unique: true,
     },
+
+    Genero: {
+        type: String,
+        required: [true, 'campo obligatorio!'],
+        trim: true,
+        unique: true,
+    },
+
+    Telefono: {
+        type: String,
+        required: [true, 'campo obligatorio!'],
+        trim: true,
+        unique: true,
+    },
+
     password: {
         type: String,
         required: [true, 'Password is required!'],
