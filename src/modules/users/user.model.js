@@ -4,67 +4,50 @@ import { passwordReg} from './user.validations';
 
 const UserSchema = new Schema({
 
-    email: {
-        type: String,
-        unique: true,
-        required: [true, 'Email is required!'],
-        trim: true,
-        validate: {
-            validator(email) {
-                return validator.isEmail(email);
-            },
-            message: '{VALUE} is not a valid email!',
-        },     
-    },
+  
 
-   NumControl: {
+   NumAdqui: {
         type: String,
         required: [true, 'campo obligatorio!'],
         trim: true,
     },
 
-    Nombre: {
+    NombreLibro: {
         type: String,
         required: [true, 'campo obligatorio!'],
         trim: true,
     },
-    ApellidoPa: {
+    NombreAuthor: {
         type: String,
         required: [true, 'campo obligatorio!'],
         trim: true,
     },
-    ApellidoMa: {
+    Editorial: {
         type: String,
         required: [true, 'campo obligatorio!'],
         trim: true,
         unique: true,
     },
 
-    Genero: {
+    Clasificacion: {
         type: String,
         required: [true, 'campo obligatorio!'],
         trim: true,
         unique: true,
     },
 
-    Telefono: {
-        type: String,
-        required: [true, 'campo obligatorio!'],
-        trim: true,
-        unique: true,
-    },
+    ISBN: {
+      type: Number,
+      unique: true,
+      required: [true, 'Se requiere la ISB del Libro!'],
+      trim: true,
+      validate: {
+          validator(ISBN) {
+              return validator.isISBN(ISBN);
+          },
+          message: '{VALUE} is not a val!',
+      },     
 
-    password: {
-        type: String,
-        required: [true, 'Password is required!'],
-        trim: true,
-        minlength: [6, 'Password need to be longer!'],
-        validate: {
-            validator(password) {
-                return passwordReg.test(password);
-            },
-            message: '{VALUE} is not a valid password!',
-        },
     },
 });
 export default mongoose.model('User', UserSchema);

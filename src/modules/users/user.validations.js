@@ -1,17 +1,20 @@
-import Joi from 'joi'; // Importamos yup para la validadción
+import Joi from 'joi'; 
 
 export const passwordReg = /^[a-zA-Z0-9]{6}$/;
 
 export default {
     signUp: {
     body: Joi.object({
-        email: Joi.string().email().required().messages({
-          'any.required': 'Debe proporcionarse un email valido',
+        ISBN: Joi.number().required().messages({
+          'any.required': 'Debe proporcionarse un ISBN valido',
         }),
-        password: Joi.string().regex(passwordReg).required(),
-        firstName: Joi.string().required(),
-        lastName: Joi.string().required(),
-        userName: Joi.string().required(),
+        NumAdqui: Joi.string().required(),
+        NombreLibro: Joi.string().required(),
+        NombreAuthor: Joi.string().required(),
+        Editorial: Joi.string().required(),
+        Clasificacion: Joi.string().required(),
+        
+
       }),
     },
   };
